@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 using Nez;
+using Nez.Sprites;
 
 namespace NezTestProject
 {
@@ -23,9 +24,18 @@ namespace NezTestProject
             Window.AllowUserResizing = true;
             var myScene = Scene.createWithDefaultRenderer(Color.CornflowerBlue);
 
-            var entityOne = myScene.createEntity("entity-one");
-            var entityTwo = myScene.createEntity("entity-two");
+            var textureBox = myScene.content.Load<Texture2D>("Graphics\\Box");
+            var textureBomb = myScene.content.Load<Texture2D>("Graphics\\Bomb");
 
+            var entityOne = myScene.createEntity("entity-one");
+            entityOne.position = new Vector2(250, 250);
+            entityOne.addComponent(new Sprite(textureBox));
+
+            var entityTwo = myScene.createEntity("entity-two");
+            entityTwo.position = new Vector2(300, 300);
+            entityTwo.addComponent(new Sprite(textureBomb));
+
+            // Set the scene so Nez can take over
             scene = myScene;
         }
 
