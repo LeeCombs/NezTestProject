@@ -30,6 +30,7 @@ namespace NezTestProject
             var entityOne = myScene.createEntity("entity-one");
             entityOne.position = new Vector2(250, 250);
             entityOne.addComponent(new Sprite(textureBox));
+            entityOne.addComponent(new SimpleMover());
 
             var entityTwo = myScene.createEntity("entity-two");
             entityTwo.position = new Vector2(300, 300);
