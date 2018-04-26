@@ -12,7 +12,7 @@ namespace NezTestProject
     /// </summary>
     public class Game1 : Core
     {
-        public Game1() : base(width: 1280, height: 768, isFullScreen: false, enableEntitySystems: false)
+        public Game1() : base(width: 640, height: 384, isFullScreen: false, enableEntitySystems: true)
         {
             //
         }
@@ -20,12 +20,18 @@ namespace NezTestProject
         protected override void Initialize()
         {
             base.Initialize();
+            
 
             Window.AllowUserResizing = true;
             var myScene = Scene.createWithDefaultRenderer(Color.CornflowerBlue);
 
             var textureBox = myScene.content.Load<Texture2D>("Graphics\\Box");
             var textureBomb = myScene.content.Load<Texture2D>("Graphics\\Bomb");
+
+            var spawnerEntity = myScene.createEntity("spawner");
+            spawnerEntity.addComponent(new SpawnerComponent(1));
+            
+            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(SpawnerComponent))));
 
             var entityOne = myScene.createEntity("entity-one");
             entityOne.position = new Vector2(250, 250);

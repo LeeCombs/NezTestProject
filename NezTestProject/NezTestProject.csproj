@@ -47,6 +47,8 @@
     <Compile Include="SimpleMover.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpawnerComponent.cs" />
+    <Compile Include="SpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
@@ -108,11 +110,11 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Nez-master\Nez.PipelineImporter\Nez.PipelineImporter.csproj">
+    <ProjectReference Include="..\..\Nez\Nez.PipelineImporter\Nez.PipelineImporter.csproj">
       <Project>{63e831f4-b847-4150-b5af-cbe059ee27b8}</Project>
       <Name>Nez.PipelineImporter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Nez-master\Nez.Portable\Nez.csproj">
+    <ProjectReference Include="..\..\Nez\Nez.Portable\Nez.csproj">
       <Project>{60b7197d-d0d5-405c-90a2-a56903e9b039}</Project>
       <Name>Nez</Name>
     </ProjectReference>
