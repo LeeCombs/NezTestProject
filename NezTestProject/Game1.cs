@@ -41,6 +41,9 @@ namespace NezTestProject
             var entityTwo = myScene.createEntity("entity-two");
             entityTwo.position = new Vector2(300, 300);
             entityTwo.addComponent(new Sprite(textureBomb));
+            
+
+            var folCam = myScene.camera.addComponent(new FollowCamera(entityOne));
 
             // Set the scene so Nez can take over
             scene = myScene;
