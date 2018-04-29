@@ -1,28 +1,29 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
 namespace NezTestProject {
-    class EnemyManager {
-        public enum Enemies {
+    public static class EnemyManager {
+        public enum EnemyType {
             Base, Goomba, Bat
         }
 
-        public EnemyEntity MakeEnemy(Enemies enemy, Vector2 position)
+        public static EnemyEntity MakeEnemy(EnemyType enemy, Vector2 position)
         {
             // grab texture based on supplied enemy
             Texture2D enemyTexture = Nez.Core.content.Load<Texture2D>("Graphics\\Bomb");
             var ent = new EnemyEntity(position, enemyTexture);
             
             switch (enemy) {
-                case Enemies.Base:
+                case EnemyType.Base:
                     //
                     break;
-                case Enemies.Goomba:
+                case EnemyType.Goomba:
                     // load Goomba texture
                     // 
                     break;
-                case Enemies.Bat:
+                case EnemyType.Bat:
                     // load Bat texture
                     // ent.addComponent(new FlyingComponent());
                     break;
@@ -33,5 +34,6 @@ namespace NezTestProject {
             
             return ent;
         }
+        
     }
 }

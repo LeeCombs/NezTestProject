@@ -29,9 +29,9 @@ namespace NezTestProject
             var textureBomb = myScene.content.Load<Texture2D>("Graphics\\Bomb");
 
             var spawnerEntity = myScene.createEntity("spawner");
-            spawnerEntity.addComponent(new SpawnerComponent(1));
+            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
             
-            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(SpawnerComponent))));
+            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
 
             var entityOne = myScene.createEntity("entity-one");
             entityOne.position = new Vector2(250, 250);

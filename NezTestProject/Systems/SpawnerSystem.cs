@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nez;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Nez.Sprites;
 
@@ -16,7 +17,7 @@ namespace NezTestProject
         public override void process(Entity entity)
         {
 
-            var spawner = entity.getComponent<SpawnerComponent>();
+            var spawner = entity.getComponent<EnemySpawnerComponent>();
             if (spawner.numAlive <= 0)
                 spawner.enabled = true;
 
@@ -30,11 +31,10 @@ namespace NezTestProject
             if (spawner.cooldown <= 0)
             {
                 spawner.cooldown = Nez.Random.range(1, 2);
-                var enemyEntity = entity.scene.createEntity("enemy");
-                enemyEntity.position = new Microsoft.Xna.Framework.Vector2(Nez.Random.range(0, 500), Nez.Random.range(0, 500));
-                enemyEntity.addComponent(new Sprite(entity.scene.content.Load<Texture2D>("Graphics\\Bomb")));
-                enemyEntity.addComponent(new SimpleMover());
-                // EntityFactory.createEnemy(entity.position.X, entity.position.Y, spawner.enemyType, entity);
+
+                var ent = EnemyManager.MakeEnemy(spawner.enemyType, new Vector2(Nez.Random.range(0, 500), Nez.Random.range(0, 500)));
+                scene.addEntity(ent);
+                
                 spawner.numSpawned++;
             }
 

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace NezTestProject
 {
-    public class SpawnerComponent : Nez.Component
+    public class EnemySpawnerComponent : Nez.Component
     {
         public float cooldown = -1;
-        public int minInterval = 2;
+        public int minInterval = 1;
         public int maxInterval = 60;
         public int minCount = 1;
-        public int maxCount = 1;
-        // enemyType
+        public int maxCount = 10;
+        public EnemyManager.EnemyType enemyType;
         public int numSpawned = 0;
         public int numAlive = 0;
 
-        public SpawnerComponent(int type)
+        public EnemySpawnerComponent(EnemyManager.EnemyType enemyType)
         {
-            // this.type = type
+            this.enemyType = enemyType;
         }
     }
 }

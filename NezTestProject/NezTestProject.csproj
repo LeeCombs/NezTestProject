@@ -49,7 +49,7 @@
     <Compile Include="Components\SimpleMover.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Components\SpawnerComponent.cs" />
+    <Compile Include="Components\EnemySpawnerComponent.cs" />
     <Compile Include="Systems\SpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
