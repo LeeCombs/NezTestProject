@@ -42,7 +42,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="EnemyEntity.cs" />
+    <Compile Include="Components\HealthComponent.cs" />
+    <Compile Include="Entities\EnemyEntity.cs" />
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Player.cs" />
@@ -111,9 +112,7 @@
     </None>
     <None Include="app.manifest" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\Nez-master\Nez.PipelineImporter\Nez.PipelineImporter.csproj">
       <Project>{63e831f4-b847-4150-b5af-cbe059ee27b8}</Project>

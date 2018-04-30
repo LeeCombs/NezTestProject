@@ -12,6 +12,7 @@ namespace NezTestProject
     /// </summary>
     public class Game1 : Core
     {
+
         public Game1() : base(width: 640, height: 384, isFullScreen: false, enableEntitySystems: true)
         {
             //
@@ -61,6 +62,8 @@ namespace NezTestProject
         {
             // TODO: Unload any non ContentManager content here
         }
+
+        float coolDown = 1;
         
         protected override void Update(GameTime gameTime)
         {
@@ -68,6 +71,16 @@ namespace NezTestProject
                 Exit();
 
             // TODO: Add your update logic here
+
+            if (scene != null) {
+
+                var ent = scene.entities.findEntity("enemy");
+
+                if (ent != null)
+                    ent.getComponent<HealthComponent>().damage(1);
+            }
+            
+
 
             base.Update(gameTime);
         }
