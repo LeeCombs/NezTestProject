@@ -13,7 +13,7 @@ namespace NezTestProject
     public class Game1 : Core
     {
 
-        public Game1() : base(width: 640, height: 384, isFullScreen: false, enableEntitySystems: true)
+        public Game1() : base(width: 900, height: 600, isFullScreen: false, enableEntitySystems: true)
         {
             //
         }
@@ -21,7 +21,7 @@ namespace NezTestProject
         protected override void Initialize()
         {
             base.Initialize();
-            
+            debugRenderEnabled = true;
 
             Window.AllowUserResizing = true;
             var myScene = Scene.createWithDefaultRenderer(Color.CornflowerBlue);
@@ -36,12 +36,15 @@ namespace NezTestProject
 
             var entityOne = myScene.createEntity("entity-one");
             entityOne.position = new Vector2(250, 250);
-            entityOne.addComponent(new Sprite(textureBox));
+            entityOne.addComponent(new Sprite(textureBomb));
             entityOne.addComponent(new SimpleMover());
+            entityOne.addComponent(new BoxCollider());
 
-            var entityTwo = myScene.createEntity("entity-two");
-            entityTwo.position = new Vector2(300, 300);
-            entityTwo.addComponent(new Sprite(textureBomb));
+            var e2 = myScene.createEntity("bob");
+            e2.position = new Vector2(500, 500);
+            e2.addComponent(new Sprite(textureBox));
+            e2.addComponent(new BoxCollider());
+            
             
 
             var folCam = myScene.camera.addComponent(new FollowCamera(entityOne));
@@ -74,10 +77,17 @@ namespace NezTestProject
 
             if (scene != null) {
 
-                var ent = scene.entities.findEntity("enemy");
-
-                if (ent != null)
-                    ent.getComponent<HealthComponent>().damage(1);
+                foreach (var ent in scene.entities.entitiesOfType<EnemyEntity>()) {
+                    
+                    // ent.getComponent<HealthComponent>().damage(1);
+                    CollisionResult res;
+                    Vector2 vec = new Vector2();
+                    if (ent.getComponent<Collider>().collidesWithAny(ref vec, out res)) {
+                        Debug.log("res col ent: {0}", res.collider.entity.name);
+                        Debug.log("Col res: {0}", res);
+                        Debug.log("--------");
+                    }
+                };
             }
             
 

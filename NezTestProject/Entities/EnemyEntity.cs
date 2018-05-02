@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Nez.Sprites;
+using Nez;
 
 namespace NezTestProject {
     public class EnemyEntity : Nez.Entity {
@@ -10,8 +11,10 @@ namespace NezTestProject {
             this.name = "enemy";
             this.position = position;
             addComponent(new Sprite(texture));
-            addComponent(new SimpleMover());
-            addComponent(new HealthComponent(60));
+            // addComponent(new SimpleMover());
+            addComponent(new HealthComponent(180));
+            addComponent(new BoxCollider());
+            
         }
     }
 }
