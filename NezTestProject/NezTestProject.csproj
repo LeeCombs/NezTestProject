@@ -65,7 +65,9 @@
     <EmbeddedResource Include="Icon.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <MonoGameContentReference Include="Content\Content.mgcb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </MonoGameContentReference>
     <None Include="$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\DesktopGL\x86\SDL2.dll">
       <Link>x86\SDL2.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -111,6 +113,41 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="app.manifest" />
+    <None Include="Content\nez\effects\Bevels.mgfxo" />
+    <None Include="Content\nez\effects\BloomCombine.mgfxo" />
+    <None Include="Content\nez\effects\BloomExtract.mgfxo" />
+    <None Include="Content\nez\effects\Crosshatch.mgfxo" />
+    <None Include="Content\nez\effects\DeferredLighting.mgfxo" />
+    <None Include="Content\nez\effects\DeferredSprite.mgfxo" />
+    <None Include="Content\nez\effects\Dissolve.mgfxo" />
+    <None Include="Content\nez\effects\Dots.mgfxo" />
+    <None Include="Content\nez\effects\ForwardLighting.mgfxo" />
+    <None Include="Content\nez\effects\GaussianBlur.mgfxo" />
+    <None Include="Content\nez\effects\Grayscale.mgfxo" />
+    <None Include="Content\nez\effects\HeatDistortion.mgfxo" />
+    <None Include="Content\nez\effects\Invert.mgfxo" />
+    <None Include="Content\nez\effects\Letterbox.mgfxo" />
+    <None Include="Content\nez\effects\MultiTexture.mgfxo" />
+    <None Include="Content\nez\effects\MultiTextureOverlay.mgfxo" />
+    <None Include="Content\nez\effects\Noise.mgfxo" />
+    <None Include="Content\nez\effects\PaletteCycler.mgfxo" />
+    <None Include="Content\nez\effects\PixelGlitch.mgfxo" />
+    <None Include="Content\nez\effects\PolygonLight.mgfxo" />
+    <None Include="Content\nez\effects\Reflection.mgfxo" />
+    <None Include="Content\nez\effects\Scanlines.mgfxo" />
+    <None Include="Content\nez\effects\Sepia.mgfxo" />
+    <None Include="Content\nez\effects\SpriteAlphaTest.mgfxo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Content\nez\effects\SpriteBlinkEffect.mgfxo" />
+    <None Include="Content\nez\effects\SpriteEffect.mgfxo" />
+    <None Include="Content\nez\effects\SpriteLightMultiply.mgfxo" />
+    <None Include="Content\nez\effects\SpriteLines.mgfxo" />
+    <None Include="Content\nez\effects\transitions\Squares.mgfxo" />
+    <None Include="Content\nez\effects\transitions\TextureWipe.mgfxo" />
+    <None Include="Content\nez\effects\transitions\Wind.mgfxo" />
+    <None Include="Content\nez\effects\Twist.mgfxo" />
+    <None Include="Content\nez\effects\Vignette.mgfxo" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

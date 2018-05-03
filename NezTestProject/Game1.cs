@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 
 using Nez;
 using Nez.Sprites;
+using Nez.Tiled;
 
 namespace NezTestProject
 {
@@ -44,10 +45,25 @@ namespace NezTestProject
             e2.position = new Vector2(500, 500);
             e2.addComponent(new Sprite(textureBox));
             e2.addComponent(new BoxCollider());
-            
-            
 
             var folCam = myScene.camera.addComponent(new FollowCamera(entityOne));
+            
+            var tiledMap = myScene.content.Load<TiledMap>("Maps\\TestMap");
+            var tiledEntity = myScene.createEntity("tiled-map");
+            tiledEntity.addComponent(new TiledMapComponent(tiledMap));
+
+            // tiledMapComponent.setLayersToRender(new string[] { "Object_Layer", "Terrain_Layer" });
+            // Render below everything
+            // tiledMapComponent.renderLayer = 10;
+
+            // Render above-details later above the player
+            /*
+            var tiledDetailsComp = tiledEntity.addComponent(new TiledMapComponent(tiledMap));
+            tiledDetailsComp.setLayersToRender("Above_Details");
+            tiledDetailsComp.renderLayer = -1;
+            tiledDetailsComp.material = Material.stencilWrite();
+            tiledDetailsComp.material.effect = myScene.content.loadNezEffect<SpriteAlphaTestEffect>();
+            */
 
             // Set the scene so Nez can take over
             scene = myScene;
@@ -65,9 +81,7 @@ namespace NezTestProject
         {
             // TODO: Unload any non ContentManager content here
         }
-
-        float coolDown = 1;
-        
+                
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -76,7 +90,7 @@ namespace NezTestProject
             // TODO: Add your update logic here
 
             if (scene != null) {
-
+                /*
                 foreach (var ent in scene.entities.entitiesOfType<EnemyEntity>()) {
                     
                     // ent.getComponent<HealthComponent>().damage(1);
@@ -88,6 +102,7 @@ namespace NezTestProject
                         Debug.log("--------");
                     }
                 };
+                */
             }
             
 

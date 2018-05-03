@@ -10,6 +10,10 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\..\..\Nez-master\Nez.PipelineImporter\bin\Debug\Nez.dll
+/reference:..\..\..\Nez-master\Nez.PipelineImporter\bin\Debug\Nez.PipelineImporter.dll
+/reference:..\..\..\Nez-master\Nez.PipelineImporter\bin\Debug\Newtonsoft.Json.dll
+/reference:..\..\..\Nez-master\Nez.PipelineImporter\bin\Debug\Ionic.Zlib.dll
 
 #---------------------------------- Content ---------------------------------#
 
@@ -36,4 +40,38 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Graphics/Box.png
+
+#begin Maps/TestMap.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Maps/TestMap.tmx
+
+#begin Maps/tiles_packed.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Maps/tiles_packed.png
+
+#begin Maps/tilemap.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Maps/tilemap.tmx
+
+#begin Maps/tileset.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Maps/tileset.png
 
