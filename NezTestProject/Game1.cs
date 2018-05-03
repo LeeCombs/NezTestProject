@@ -14,57 +14,60 @@ namespace NezTestProject
     public class Game1 : Core
     {
 
-        public Game1() : base(width: 900, height: 600, isFullScreen: false, enableEntitySystems: true)
+        Entity playerEntity;
+
+        public Game1() : base(width: 450, height: 300, isFullScreen: false, enableEntitySystems: true)
         {
-            //
+            
         }
 
         protected override void Initialize()
         {
             base.Initialize();
-            debugRenderEnabled = true;
+            Screen.setSize(450 * 2, 300 * 2);
+            debugRenderEnabled = false;
 
             Window.AllowUserResizing = true;
             var myScene = Scene.createWithDefaultRenderer(Color.CornflowerBlue);
+            myScene.setDesignResolution(450, 300, Scene.SceneResolutionPolicy.ShowAllPixelPerfect);
 
             var textureBox = myScene.content.Load<Texture2D>("Graphics\\Box");
             var textureBomb = myScene.content.Load<Texture2D>("Graphics\\Bomb");
 
-            var spawnerEntity = myScene.createEntity("spawner");
-            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
-            
-            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
+            // var spawnerEntity = myScene.createEntity("spawner");
+            // spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
+            // myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
 
-            var entityOne = myScene.createEntity("entity-one");
-            entityOne.position = new Vector2(250, 250);
-            entityOne.addComponent(new Sprite(textureBomb));
-            entityOne.addComponent(new SimpleMover());
-            entityOne.addComponent(new BoxCollider());
 
-            var e2 = myScene.createEntity("bob");
-            e2.position = new Vector2(500, 500);
-            e2.addComponent(new Sprite(textureBox));
-            e2.addComponent(new BoxCollider());
-
-            var folCam = myScene.camera.addComponent(new FollowCamera(entityOne));
             
             var tiledMap = myScene.content.Load<TiledMap>("Maps\\TestMap");
             var tiledEntity = myScene.createEntity("tiled-map");
-            tiledEntity.addComponent(new TiledMapComponent(tiledMap));
-
-            // tiledMapComponent.setLayersToRender(new string[] { "Object_Layer", "Terrain_Layer" });
+            var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "Collision"));
+            tiledMapComponent.setLayersToRender(new string[] { "Objects", "Terrain" });
             // Render below everything
-            // tiledMapComponent.renderLayer = 10;
+            tiledMapComponent.renderLayer = 10;
 
             // Render above-details later above the player
-            /*
             var tiledDetailsComp = tiledEntity.addComponent(new TiledMapComponent(tiledMap));
-            tiledDetailsComp.setLayersToRender("Above_Details");
+            tiledDetailsComp.setLayersToRender("AboveDetail");
             tiledDetailsComp.renderLayer = -1;
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = myScene.content.loadNezEffect<SpriteAlphaTestEffect>();
-            */
 
+            playerEntity = myScene.createEntity("entity-one");
+            playerEntity.position = new Vector2(350, 350);
+            playerEntity.addComponent(new Sprite(textureBomb));
+            playerEntity.addComponent(new SimpleMover());
+            playerEntity.addComponent(new CircleCollider());
+            var shadow = playerEntity.addComponent(new SpriteMime(playerEntity.getComponent<Sprite>()));
+            shadow.color = new Color(10, 10, 10, 80);
+            shadow.material = Material.stencilRead();
+            shadow.renderLayer = -2;
+            
+
+            var folCam = myScene.camera.addComponent(new FollowCamera(playerEntity));
+
+            
             // Set the scene so Nez can take over
             scene = myScene;
         }
@@ -90,19 +93,12 @@ namespace NezTestProject
             // TODO: Add your update logic here
 
             if (scene != null) {
-                /*
-                foreach (var ent in scene.entities.entitiesOfType<EnemyEntity>()) {
-                    
-                    // ent.getComponent<HealthComponent>().damage(1);
-                    CollisionResult res;
-                    Vector2 vec = new Vector2();
-                    if (ent.getComponent<Collider>().collidesWithAny(ref vec, out res)) {
-                        Debug.log("res col ent: {0}", res.collider.entity.name);
-                        Debug.log("Col res: {0}", res);
-                        Debug.log("--------");
-                    }
-                };
-                */
+                CollisionResult colRes;
+                Vector2 deltaMovement = new Vector2();
+                if (playerEntity.getComponent<Collider>().collidesWithAny(ref deltaMovement, out colRes)) {
+                    Debug.log("colRes: {0}", colRes);
+                }
+                playerEntity.position += deltaMovement;
             }
             
 
