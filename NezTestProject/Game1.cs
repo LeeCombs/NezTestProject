@@ -34,12 +34,12 @@ namespace NezTestProject
             var textureBox = myScene.content.Load<Texture2D>("Graphics\\Box");
             var textureBomb = myScene.content.Load<Texture2D>("Graphics\\Bomb");
 
-            // var spawnerEntity = myScene.createEntity("spawner");
-            // spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
-            // myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
-
-
+            // Spawner test
+            var spawnerEntity = myScene.createEntity("spawner");
+            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
+            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
             
+            // Tiled map loading
             var tiledMap = myScene.content.Load<TiledMap>("Maps\\TestMap");
             var tiledEntity = myScene.createEntity("tiled-map");
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "Collision"));
@@ -54,7 +54,7 @@ namespace NezTestProject
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = myScene.content.loadNezEffect<SpriteAlphaTestEffect>();
 
-            
+            // Adding the player
             _playerEntity = new PlayerEntity();
             _playerEntity.position = new Vector2(350, 350);
             myScene.addEntity(_playerEntity);

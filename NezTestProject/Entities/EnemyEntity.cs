@@ -13,7 +13,11 @@ namespace NezTestProject {
             addComponent(new Sprite(texture));
             // addComponent(new SimpleMover());
             addComponent(new HealthComponent(180));
-            addComponent(new BoxCollider());
+            addComponent(new CircleCollider());
+
+            // temp
+            addComponent(new Mover());
+            addComponent(new PlayerMovementComponent());
             
         }
     }

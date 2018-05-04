@@ -32,7 +32,7 @@ namespace NezTestProject
             {
                 spawner.cooldown = Nez.Random.range(1, 2);
 
-                var ent = EnemyManager.MakeEnemy(spawner.enemyType, new Vector2(Nez.Random.range(0, 500), Nez.Random.range(0, 500)));
+                var ent = EnemyManager.MakeEnemy(spawner.enemyType, new Vector2(Nez.Random.range(350, 550), Nez.Random.range(150, 350)));
                 scene.addEntity(ent);
                 
                 spawner.numSpawned++;
