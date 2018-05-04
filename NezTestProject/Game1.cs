@@ -14,7 +14,7 @@ namespace NezTestProject
     public class Game1 : Core
     {
 
-        Entity playerEntity;
+        PlayerEntity _playerEntity;
 
         public Game1() : base(width: 450, height: 300, isFullScreen: false, enableEntitySystems: true)
         {
@@ -54,18 +54,12 @@ namespace NezTestProject
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = myScene.content.loadNezEffect<SpriteAlphaTestEffect>();
 
-            playerEntity = myScene.createEntity("entity-one");
-            playerEntity.position = new Vector2(350, 350);
-            playerEntity.addComponent(new Sprite(textureBomb));
-            playerEntity.addComponent(new SimpleMover());
-            playerEntity.addComponent(new CircleCollider());
-            var shadow = playerEntity.addComponent(new SpriteMime(playerEntity.getComponent<Sprite>()));
-            shadow.color = new Color(10, 10, 10, 80);
-            shadow.material = Material.stencilRead();
-            shadow.renderLayer = -2;
             
+            _playerEntity = new PlayerEntity();
+            _playerEntity.position = new Vector2(350, 350);
+            myScene.addEntity(_playerEntity);
 
-            var folCam = myScene.camera.addComponent(new FollowCamera(playerEntity));
+            var folCam = myScene.camera.addComponent(new FollowCamera(_playerEntity));
 
             
             // Set the scene so Nez can take over
@@ -90,15 +84,18 @@ namespace NezTestProject
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
             // TODO: Add your update logic here
 
             if (scene != null) {
+                /*
                 CollisionResult colRes;
                 Vector2 deltaMovement = new Vector2();
-                if (playerEntity.getComponent<Collider>().collidesWithAny(ref deltaMovement, out colRes)) {
+                if (_playerEntity.getComponent<Collider>().collidesWithAny(out colRes)) {
                     Debug.log("colRes: {0}", colRes);
                 }
-                playerEntity.position += deltaMovement;
+                _playerEntity.position += deltaMovement;
+                */
             }
             
 

@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components\HealthComponent.cs" />
+    <Compile Include="Entities\PlayerEntity.cs" />
     <Compile Include="Entities\EnemyEntity.cs" />
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Game1.cs" />
