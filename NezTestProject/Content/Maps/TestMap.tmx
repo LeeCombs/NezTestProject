@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
- <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184">
+ <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184" columns="23">
   <image source="tiles_packed.png" width="368" height="128"/>
  </tileset>
  <layer name="Terrain" width="50" height="50">

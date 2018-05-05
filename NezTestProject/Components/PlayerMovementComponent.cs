@@ -43,7 +43,6 @@ namespace NezTestProject {
             if (moveDirection != Vector2.Zero) {
                 var movement = moveDirection * _moveSpeed * Time.deltaTime;
                 CollisionResult res;
-                
                 _mover.move(movement, out res);
             }
             else {
