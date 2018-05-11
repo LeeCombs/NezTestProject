@@ -21,7 +21,7 @@ namespace NezTestProject {
         protected override void Initialize() {
             // Basic set up
             base.Initialize();
-            debugRenderEnabled = false;
+            debugRenderEnabled = true;
             Window.AllowUserResizing = true;
 
 
@@ -40,7 +40,18 @@ namespace NezTestProject {
             var spawnerEntity = myScene.createEntity("spawner");
             spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
             myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
-           
+
+            // All entities with a Hurtbox
+            myScene.addEntityProcessor(new CollisionSystem(new Matcher().all(typeof(Collider))));
+            myScene.addEntityProcessor(new HurtboxSystem(new Matcher().all(typeof(Hurtbox))));
+
+            var hbent = myScene.createEntity("hb");
+            hbent.position = new Vector2(300, 300);
+            hbent.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Envrionment));
+
+            var hbent2 = myScene.createEntity("hb");
+            hbent2.position = new Vector2(350, 300);
+            hbent2.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Player));
 
             // Set the scene so Nez can take over
             scene = myScene;
@@ -52,7 +63,7 @@ namespace NezTestProject {
         
         protected override void UnloadContent() {
             // TODO: Unload any non-ContentManager content here
-        }
+        } 
                 
         protected override void Update(GameTime gameTime) {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))

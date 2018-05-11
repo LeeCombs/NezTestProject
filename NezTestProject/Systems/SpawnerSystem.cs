@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Nez;
+﻿using Nez;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Nez.Sprites;
 
-namespace NezTestProject
-{
-    public class SpawnerSystem : Nez.EntityProcessingSystem
-    {
-        public SpawnerSystem(Nez.Matcher matcher) : base(matcher){ }
+namespace NezTestProject {
+    public class SpawnerSystem : EntityProcessingSystem {
+        public SpawnerSystem(Matcher matcher) : base(matcher) { }
 
-        public override void process(Entity entity)
-        {
+        public override void process(Entity entity) {
+
+            Debug.log("spa Entity {0}", entity.GetType());
 
             var spawner = entity.getComponent<EnemySpawnerComponent>();
             if (spawner.numAlive <= 0)
@@ -25,14 +17,14 @@ namespace NezTestProject
                 return;
 
             if (spawner.cooldown == -1)
-                spawner.cooldown = Nez.Random.range(1, 3);
+                spawner.cooldown = Random.range(1, 3);
 
             spawner.cooldown -= Time.deltaTime;
             if (spawner.cooldown <= 0)
             {
-                spawner.cooldown = Nez.Random.range(1, 2);
+                spawner.cooldown = Random.range(1, 2);
 
-                var ent = EnemyManager.MakeEnemy(spawner.enemyType, new Vector2(Nez.Random.range(350, 550), Nez.Random.range(150, 350)));
+                var ent = EnemyManager.MakeEnemy(spawner.enemyType, new Vector2(Random.range(350, 550), Random.range(150, 350)));
                 scene.addEntity(ent);
                 
                 spawner.numSpawned++;

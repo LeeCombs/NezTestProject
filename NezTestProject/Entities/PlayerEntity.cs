@@ -30,6 +30,7 @@ namespace NezTestProject {
             addComponent(new CircleCollider());
             addComponent(new Mover());
             addComponent(new PlayerMovementComponent());
+            addComponent(new Player());
         }
 
         public override void onRemovedFromScene() {
