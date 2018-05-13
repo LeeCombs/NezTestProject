@@ -46,9 +46,8 @@
     <Compile Include="Components\Hurtbox.cs" />
     <Compile Include="Systems\HurtboxSystem.cs" />
     <Compile Include="Entities\PlayerEntity.cs" />
-    <Compile Include="Entities\EnemyEntity.cs" />
     <Compile Include="EnemyManager.cs" />
-    <Compile Include="Enums.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Components\SimpleMover.cs" />

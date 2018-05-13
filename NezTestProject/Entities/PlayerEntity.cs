@@ -12,6 +12,7 @@ namespace NezTestProject {
 
         public PlayerEntity() {
             name = "player-entity";
+            tag = (int)Tag.Player;
         }
         
         public override void onAddedToScene() {
@@ -24,7 +25,7 @@ namespace NezTestProject {
             var shadow = addComponent(new SpriteMime(_sprite));
             shadow.color = new Color(10, 10, 10, 80);
             shadow.material = Material.stencilRead();
-            shadow.renderLayer = -2; // Above top-most tile map graphics
+            shadow.renderLayer = (int)RenderLayer.AboveDetailShadow; // Above top-most tile map graphics
 
             // Movement and collision
             addComponent(new CircleCollider());

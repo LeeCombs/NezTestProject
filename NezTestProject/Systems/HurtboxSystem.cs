@@ -10,17 +10,44 @@ namespace NezTestProject {
 
             foreach (Hurtbox hb in hurtboxes) {
 
-                #region Other entities overlapping
+                #region Entity overlap
                 var colliders = Physics.boxcastBroadphase(entity.getComponent<Collider>().bounds);
 
                 CollisionResult colRes;
                 foreach (var col in colliders) {
                     if (entity.getComponent<Collider>().collidesWith(col, out colRes)) {
                         Debug.log("hbcolres: {0}", col.entity.GetType());
-                        // If enviro, damage everything...
-                        // If enemy, damage player
-                        // If player, damage enemy
-                        // Enemy vs enemy? Ensure it doesn't effect the sourceEntity?
+
+                        // Only operate on entities that have health components
+                        if (col.entity.getComponent<HealthComponent>() != null) {
+
+                            switch (hb.hurtboxType) {
+                                case Hurtbox.HurtboxType.Envrionment:
+                                    // Hurt everything
+                                    break;
+                                case Hurtbox.HurtboxType.Enemy:
+                                    // Damage player
+                                    if (col.entity.tag == (int)Tag.Player) {
+                                        //
+                                    }
+                                    break;
+                                case Hurtbox.HurtboxType.Player:
+                                    // Damage enemies
+                                    if (col.entity.tag == (int)Tag.Enemy) {
+                                        //
+                                    }
+                                    break;
+                                default:
+                                    //
+                                    break;
+                            }
+
+                            // if (col.entity.GetType() == typeof(EnemyEntity))
+                            //     Debug.log("I overlap an enemy!");
+                            // if (col.entity.GetType() == typeof(PlayerEntity))
+                            //    Debug.log("I overlap a player!");
+                        }
+
                     }
                 }
 

@@ -25,12 +25,12 @@ namespace NezTestProject {
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "Collision"));
             tiledMapComponent.setLayersToRender(new string[] { "Objects", "Terrain" });
             // Render below everything
-            tiledMapComponent.renderLayer = (int)Enums.RenderLayer.TileMap;
+            tiledMapComponent.renderLayer = (int)RenderLayer.TileMap;
 
             // Render above-details later above the player
             var tiledDetailsComp = tiledEntity.addComponent(new TiledMapComponent(tiledMap));
             tiledDetailsComp.setLayersToRender("AboveDetail");
-            tiledDetailsComp.renderLayer = (int)Enums.RenderLayer.AboveDetail;
+            tiledDetailsComp.renderLayer = (int)RenderLayer.AboveDetail;
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = content.loadNezEffect<SpriteAlphaTestEffect>();
         }
