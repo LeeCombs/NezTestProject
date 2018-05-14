@@ -30,5 +30,28 @@
             _strength = strength;
             _defense = defense;
         }
+
+        #region Helpers
+
+        /// <summary>
+        /// Deal damage and returns the total damage dealt
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns>Total damage dealt</returns>
+        public int DealDamage(int value) {
+            // Apply defense
+            int reducedDamage = value - Defense;
+            if (reducedDamage <= 0)
+                return 0;
+
+            // Return whichever value is lower: current health or damageValue
+            int damageDealt = _health > value ? _health : value;
+            _health -= value;
+            if (_health <= 0)
+                _health = 0;
+            return damageDealt;
+        }
+
+        #endregion
     }
 }

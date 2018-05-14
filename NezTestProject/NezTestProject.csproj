@@ -58,7 +58,6 @@
     <Compile Include="Components\EnemySpawnerComponent.cs" />
     <Compile Include="Scenes\GameScene.cs" />
     <Compile Include="Systems\CollisionSystem.cs" />
-    <Compile Include="Systems\OverlapSystem.cs" />
     <Compile Include="Systems\SpawnerSystem.cs" />
   </ItemGroup>
   <ItemGroup>
