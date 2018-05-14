@@ -13,7 +13,7 @@ namespace NezTestProject {
 
             _health -= value;
             if (_health <= 0)
-                entity.destroy();
+                _health = 0;
 
             return damageDealt;
         }
