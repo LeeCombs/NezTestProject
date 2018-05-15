@@ -53,6 +53,7 @@ namespace NezTestProject {
                                     // Hurt player
                                     if (col.entity.tag == (int)Tag.Player) {
                                         dmgDealt = cbs.DealDamage((int)hb.damage);
+                                        Debug.log("Damaged player for {0}", dmgDealt);
                                         // TODO: Create a enemy damage splat with dmgDealt
                                     }
                                     // TODO: Sometimes other enemies?
@@ -61,6 +62,7 @@ namespace NezTestProject {
                                     // Damage enemies
                                     if (col.entity.tag == (int)Tag.Enemy) {
                                         dmgDealt = cbs.DealDamage((int)hb.damage);
+                                        Debug.log("Damaged enemy for {0}", dmgDealt);
                                         // TODO: Create a player damage splat with dmgDealt
                                     }
                                     break;

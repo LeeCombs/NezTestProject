@@ -7,8 +7,6 @@ namespace NezTestProject {
 
         public override void process(Entity entity) {
 
-            Debug.log("spa Entity {0}", entity.GetType());
-
             var spawner = entity.getComponent<EnemySpawnerComponent>();
             if (spawner.numAlive <= 0)
                 spawner.enabled = true;

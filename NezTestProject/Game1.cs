@@ -41,17 +41,19 @@ namespace NezTestProject {
             spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
             myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
 
-            // All entities with a Hurtbox
+            // Other entity processors
             myScene.addEntityProcessor(new CollisionSystem(new Matcher().all(typeof(Collider))));
             myScene.addEntityProcessor(new HurtboxSystem(new Matcher().all(typeof(Hurtbox))));
-
+            myScene.addEntityProcessor(new CombatStatSystem(new Matcher().all(typeof(CombatStats))));
+            
+            // Entity testing
             var hbent = myScene.createEntity("hb");
             hbent.position = new Vector2(300, 300);
             hbent.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Envrionment));
 
             var hbent2 = myScene.createEntity("hb");
             hbent2.position = new Vector2(350, 300);
-            hbent2.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Player));
+            hbent2.addComponent(new Hurtbox(6000, 10, Hurtbox.HurtboxType.Player, 10));
 
             // Set the scene so Nez can take over
             scene = myScene;

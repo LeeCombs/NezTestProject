@@ -32,6 +32,7 @@ namespace NezTestProject {
             addComponent(new Mover());
             addComponent(new PlayerMovementComponent());
             addComponent(new Player());
+            addComponent(new CombatStats(1000, 10, 10));
         }
 
         public override void onRemovedFromScene() {

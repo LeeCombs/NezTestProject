@@ -43,9 +43,9 @@ namespace NezTestProject {
             }
 
             // Health Component
-            if (hpValue <= 0)
-                Debug.warn("Enemy HP value not set for type {0}", enemyType.ToString());
-            enemyEntity.addComponent(new HealthComponent(hpValue));
+            if (hpValue <= 0) // || str || def
+                Debug.warn("Enemy stat values not set for type {0}", enemyType.ToString());
+            enemyEntity.addComponent(new CombatStats(hpValue, 0, 0));
 
             // Sprite Component
             if (String.Equals(texturePath, "Graphics\\")) {
