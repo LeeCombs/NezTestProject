@@ -46,6 +46,7 @@
     <Compile Include="Components\CombatStats.cs" />
     <Compile Include="Components\DamageSplat.cs" />
     <Compile Include="Components\Hurtbox.cs" />
+    <Compile Include="Scenes\GameScene2.cs" />
     <Compile Include="Systems\CombatStatSystem.cs" />
     <Compile Include="Systems\DamageSplatSystem.cs" />
     <Compile Include="Systems\HurtboxSystem.cs" />
@@ -154,9 +155,13 @@
     <None Include="Content\nez\effects\SpriteEffect.mgfxo" />
     <None Include="Content\nez\effects\SpriteLightMultiply.mgfxo" />
     <None Include="Content\nez\effects\SpriteLines.mgfxo" />
-    <None Include="Content\nez\effects\transitions\Squares.mgfxo" />
+    <None Include="Content\nez\effects\transitions\Squares.mgfxo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\nez\effects\transitions\TextureWipe.mgfxo" />
-    <None Include="Content\nez\effects\transitions\Wind.mgfxo" />
+    <None Include="Content\nez\effects\transitions\Wind.mgfxo">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Content\nez\effects\Twist.mgfxo" />
     <None Include="Content\nez\effects\Vignette.mgfxo" />
   </ItemGroup>

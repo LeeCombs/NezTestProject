@@ -1,10 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-
 using Nez;
-using Nez.Sprites;
-using Nez.Tiled;
 
 namespace NezTestProject {
     /// <summary>
@@ -30,7 +27,8 @@ namespace NezTestProject {
 
 
             // Add the player and camera
-            _playerEntity = PlayerAssemblage.MakePlayer(new Vector2(350, 350));
+            
+            _playerEntity = PlayerAssemblage.MakePlayer(new Vector2(50, 50));
             myScene.addEntity(_playerEntity);
             var folCam = myScene.camera.addComponent(new FollowCamera(_playerEntity, FollowCamera.CameraStyle.CameraWindow));
             
@@ -70,8 +68,11 @@ namespace NezTestProject {
         protected override void Update(GameTime gameTime) {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            
+
             // TODO: Add your update logic here
+
+            if (Nez.Input.isKeyPressed(Keys.T))
+                Core.startSceneTransition(new WindTransition(() => new GameScene2()));
             
             base.Update(gameTime);
         }

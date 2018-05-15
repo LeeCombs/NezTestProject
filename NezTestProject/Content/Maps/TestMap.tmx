@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184" columns="23">
   <image source="tiles_packed.png" width="368" height="128"/>
  </tileset>
- <layer name="Terrain" width="50" height="50">
+ <layer name="Terrain" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt08sNgkAYBOAV1BrUaA0etAZMtAPf2oFPPHH2iT2oWKdjAslmA4hGyJLM4UvmsuGf5V9HCOEQEREREWmmAAaYXyhBWYPZZRVo/aCtwez/6NFLcSZ5RwwpF0X0LujY4z1TPUYjYY8+DBRDjXp0/H8TMCPuegFLxSrDHs2IuQJVqCl07GFBN0bYt62QHns4KI4Z9hjBGCYwVfIM5iFndHzna9jAFmw/25JdTnqc4AwXcP3sSq456XGDOzzA87MneYacCXYxiU87SkREREREREREROl6AY/qjTQ=
+   eJzt0kkKwkAQheE2Uc+gomdwoWdQ0Bs46w0c4yprx3gHNZ7TJ3SgKEynMyFCLz6oRZKf7oorhHD/SAEssGMoQTlltwKtBNo/6vZD7swic1FxN1l0P9+oKzQ0uwMYMqMU3a48e8AOOcsSVsxa0W1G3E0VakwW3Q70FOiz9B3ePcCROSm6Y5jAFGZsnsNCc79x/6sNbGEHjpwdYp9T9wwXuIInZ4+45dS9wwOe4MvZJ15fusFudETtzDCMZN4aK+XQ
   </data>
  </layer>
- <layer name="Objects" width="50" height="50">
+ <layer name="Objects" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1bENwCAMBEB2JKuxBFEyY6hRWmyR3ElfWno3dikAAMAqLbvAYjvv17MLBKgjR3YJtnEGzfBPb/do/iHXyB1TBwAAAAD4sAcBPwZp
+   eJxjYBgFxICpA+0ANEBP96yio13EgmAgDhloRwxhsJpOekYBBGBLr+h5eC0Qr6OPc0bBKBgFdAAAifEGaQ==
   </data>
  </layer>
- <layer name="AboveDetail" width="50" height="50">
+ <layer name="AboveDetail" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt1LkNgEAUQ8FtgKMIjiI4+i8Lt4BW4hPMSC935NYAAIBKQxrTlObiLT2WtKYt7cVbehzpTFe6i7fA1/zRv/gjAAAAAID3HtKcA4U=
+   eJxjYBgF1AK8QMwHxPxALEBHe1WAWBWI1YBYnY72WgOxDRDbArEdHe0dBdQDo+l1FIyCUTAKaAMACYcDeA==
   </data>
  </layer>
- <layer name="Collision" width="50" height="50" opacity="0.5">
+ <layer name="Collision" width="30" height="20" opacity="0.64">
   <data encoding="base64" compression="zlib">
-   eJzt1lEKgCAQBUDvfw4P2r9EsrahbDMQ/pjuq0xbAwCgip5wneBtHXI8jxn9Fk7NEe033hOta3eOlXV6139njtPn/FuOjD2gD22mjHX+1ZzRMSv8d1eMmWZ1ZT+HLJXeR4VzIgAAAADMXAzhQLU=
+   eJxbwsDAsGQIYUrASLWXHDeiyw2EvaTaQY0wIwcMBXupkbaWING0jl9izBpK+ZcYd+DSM5T8O4pH8ShGYABTIesd
   </data>
  </layer>
 </map>

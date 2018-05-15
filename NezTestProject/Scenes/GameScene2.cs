@@ -4,9 +4,9 @@ using Nez.Tiled;
 
 namespace NezTestProject {
 
-    class GameScene : Scene {
+    class GameScene2 : Scene {
 
-        public GameScene() {
+        public GameScene2() {
             //
         }
 
@@ -20,7 +20,7 @@ namespace NezTestProject {
             addRenderer(new DefaultRenderer());
 
             // Load the Tiled map
-            var tiledMap = content.Load<TiledMap>("Maps\\TestMap");
+            var tiledMap = content.Load<TiledMap>("Maps\\map_2");
             var tiledEntity = createEntity("tiled-map");
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "Collision"));
             tiledMapComponent.setLayersToRender(new string[] { "Objects", "Terrain" });

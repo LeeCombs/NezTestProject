@@ -99,3 +99,8 @@
 /processorParam:TextureFormat=Color
 /build:Graphics/PlayerSplat.png
 
+#begin Maps/map_2.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:Maps/map_2.tmx
+

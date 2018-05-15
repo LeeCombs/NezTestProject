@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184" columns="23">
+  <image source="tiles_packed.png" width="368" height="128"/>
+ </tileset>
+ <layer name="Terrain" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztlCsOgDAQBUHAGSrA8xEI8HzuASTc/xA8EppUsGlpoDVvkzEr3rhJkviXgsyB/KetDvQOlA5+5bg10E8//fTT7+W/Ol/cmC0P5Ve3++kfwt8JW6H8K9jADo4I/grUoAFtBP8IJjCDJYJfOvrpp5/+N37dchtm56Xz2dItt2F2XjqfLd1yG2bnpftyK8SdHzKC6Q==
+  </data>
+ </layer>
+ <layer name="Objects" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAw2CgTiECHV+QOxPAAfQyI3YgCUUI4NVRGJa2U9PgMt+eoUBNf1PbBokZP9wiX9iwoOe8Y/NPYMx/ZPrd3LSH60BuW6iVx6YCcSzqGAOuWADEG9EEyPH7+jhTIg/2AE9y0BqAWqF+VD0O7XBSA6Dkex3GBjsYYCt3sCX36ld/mKrN0bBwAAAjf5kbA==
+  </data>
+ </layer>
+ <layer name="AboveDetail" width="32" height="32">
+  <data encoding="base64" compression="zlib">
+   eJztV8kJwDAM8wJpO0SPIXrsP1b1DCbYj9ZKoRboEfIQlmWTFBEZwBGchI8ZXMAV3Dro7+ABnuDVQT8hUsTOoHf/FF4GozOqM6jrZc+I1mPraz+i9b18Re+IVn3Rma/Rqu8ve1n77J3fhjdr7N3jnSPA9lzja/uO/Sax/Gb0wvKb0YvUT/2e+ta85/8kEYkb8m8eeQ==
+  </data>
+ </layer>
+ <layer name="Collision" width="32" height="32" opacity="0.57">
+  <data encoding="base64" compression="zlib">
+   eJztU20KQCEI8/7X6KLv/6PELb8IA6EMN21ricgqDmRFYFXzM7Ue67bnXQ7RPIKfwfLmz/K/lkOw/vsb/lf0P91V6a/VdfI/qz/qP2uewdLuLfwZ/1/bM1he/Iz+Jz9pnN5vidYgc0X0HOml3dnKz/5/tOfRv+f8o39//VEtkNk8ZpjIiw+gSUso
+  </data>
+ </layer>
+</map>
