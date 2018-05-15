@@ -42,9 +42,12 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assemblages\DamageSplatAssemblage.cs" />
     <Compile Include="Components\CombatStats.cs" />
+    <Compile Include="Components\DamageSplat.cs" />
     <Compile Include="Components\Hurtbox.cs" />
     <Compile Include="Systems\CombatStatSystem.cs" />
+    <Compile Include="Systems\DamageSplatSystem.cs" />
     <Compile Include="Systems\HurtboxSystem.cs" />
     <Compile Include="Assemblages\PlayerAssemblage.cs" />
     <Compile Include="Assemblages\EnemyAssemblage.cs" />

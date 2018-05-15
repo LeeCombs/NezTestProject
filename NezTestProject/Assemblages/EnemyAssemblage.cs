@@ -28,7 +28,7 @@ namespace NezTestProject {
                     // TODO: Figure out what to do with this
                     break;
                 case EnemyType.Goomba:
-                    hpValue = 60;
+                    hpValue = 47;
                     texturePath += "Bomb";
                     break;
                 case EnemyType.Bat:

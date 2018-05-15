@@ -45,7 +45,7 @@
                 return 0;
 
             // Return whichever value is lower: current health or damageValue
-            int damageDealt = _health > value ? _health : value;
+            int damageDealt = _health < value ? _health : value;
             _health -= value;
             if (_health <= 0)
                 _health = 0;

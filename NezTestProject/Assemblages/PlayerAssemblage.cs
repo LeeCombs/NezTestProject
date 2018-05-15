@@ -29,7 +29,7 @@ namespace NezTestProject {
             playerEntity.addComponent(new PlayerMovementComponent());
             playerEntity.addComponent(new Player());
             playerEntity.addComponent(new CombatStats(1000, 100, 10));
-
+            
             return playerEntity;
         }
     }

@@ -21,7 +21,7 @@ namespace NezTestProject {
         protected override void Initialize() {
             // Basic set up
             base.Initialize();
-            debugRenderEnabled = true;
+            // debugRenderEnabled = true;
             Window.AllowUserResizing = true;
 
 
@@ -44,11 +44,12 @@ namespace NezTestProject {
             myScene.addEntityProcessor(new CollisionSystem(new Matcher().all(typeof(Collider))));
             myScene.addEntityProcessor(new HurtboxSystem(new Matcher().all(typeof(Hurtbox))));
             myScene.addEntityProcessor(new CombatStatSystem(new Matcher().all(typeof(CombatStats))));
-            
+            myScene.addEntityProcessor(new DamageSplatSystem(new Matcher().all(typeof(DamageSplat))));
+
             // Entity testing
             var hbent = myScene.createEntity("hb");
             hbent.position = new Vector2(300, 300);
-            hbent.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Envrionment));
+            hbent.addComponent(new Hurtbox(600, 1, Hurtbox.HurtboxType.Enemy));
 
             var hbent2 = myScene.createEntity("hb");
             hbent2.position = new Vector2(350, 300);
