@@ -13,11 +13,11 @@ namespace NezTestProject
         public int maxInterval = 60;
         public int minCount = 1;
         public int maxCount = 10;
-        public EnemyManager.EnemyType enemyType;
+        public EnemyAssemblage.EnemyType enemyType;
         public int numSpawned = 0;
         public int numAlive = 0;
 
-        public EnemySpawnerComponent(EnemyManager.EnemyType enemyType)
+        public EnemySpawnerComponent(EnemyAssemblage.EnemyType enemyType)
         {
             this.enemyType = enemyType;
         }

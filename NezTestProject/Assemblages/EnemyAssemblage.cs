@@ -1,12 +1,11 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Nez;
 using Nez.Sprites;
 
 namespace NezTestProject {
-    public static class EnemyManager {
+    public static class EnemyAssemblage {
         public enum EnemyType {
             Base, Goomba, Bat
         }
@@ -20,7 +19,7 @@ namespace NezTestProject {
             enemyEntity.addComponent(new Mover());
 
             // Update these values to plug into default components
-            int hpValue = 0;
+            int hpValue = 0, strValue = 0, defValue = 0;
             string texturePath = "Graphics\\";
             
             // Enemy-unique setup
@@ -43,9 +42,9 @@ namespace NezTestProject {
             }
 
             // Health Component
-            if (hpValue <= 0) // || str || def
-                Debug.warn("Enemy stat values not set for type {0}", enemyType.ToString());
-            enemyEntity.addComponent(new CombatStats(hpValue, 0, 0));
+            if (hpValue <= 0 || strValue <= 0 || defValue <= 0)
+                Debug.warn("Not all enemy stat values not set for type {0}", enemyType.ToString());
+            enemyEntity.addComponent(new CombatStats(hpValue, strValue, defValue));
 
             // Sprite Component
             if (String.Equals(texturePath, "Graphics\\")) {

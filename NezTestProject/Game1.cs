@@ -12,7 +12,7 @@ namespace NezTestProject {
     /// </summary>
     public class Game1 : Core {
 
-        PlayerEntity _playerEntity;
+        Entity _playerEntity;
 
         public Game1() : base(width: 450, height: 300, isFullScreen: false, enableEntitySystems: true) {
             //
@@ -30,15 +30,14 @@ namespace NezTestProject {
 
 
             // Add the player and camera
-            _playerEntity = new PlayerEntity();
-            _playerEntity.position = new Vector2(350, 350);
+            _playerEntity = PlayerAssemblage.MakePlayer(new Vector2(350, 350));
             myScene.addEntity(_playerEntity);
             var folCam = myScene.camera.addComponent(new FollowCamera(_playerEntity, FollowCamera.CameraStyle.CameraWindow));
             
 
             // Spawner test
             var spawnerEntity = myScene.createEntity("spawner");
-            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyManager.EnemyType.Goomba));
+            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyAssemblage.EnemyType.Goomba));
             myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
 
             // Other entity processors
@@ -53,7 +52,7 @@ namespace NezTestProject {
 
             var hbent2 = myScene.createEntity("hb");
             hbent2.position = new Vector2(350, 300);
-            hbent2.addComponent(new Hurtbox(6000, 10, Hurtbox.HurtboxType.Player, 10));
+            hbent2.addComponent(new Hurtbox(6000, 10, Hurtbox.HurtboxType.Player));
 
             // Set the scene so Nez can take over
             scene = myScene;
