@@ -104,3 +104,15 @@
 /processor:TiledMapProcessor
 /build:Maps/map_2.tmx
 
+#begin Music/Cool_Morning.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Cool_Morning.mp3
+
+#begin Music/Warning.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Warning.mp3
+

@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="16" tileheight="16" nextobjectid="2">
  <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184" columns="23">
   <image source="tiles_packed.png" width="368" height="128"/>
  </tileset>
+ <layer name="TerrainBackground" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6GTXukzsSckrJqqqm8P8+AsEA==
+  </data>
+ </layer>
  <layer name="Terrain" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzt0kkKwkAQheE2Uc+gomdwoWdQ0Bs46w0c4yprx3gHNZ7TJ3SgKEynMyFCLz6oRZKf7oorhHD/SAEssGMoQTlltwKtBNo/6vZD7swic1FxN1l0P9+oKzQ0uwMYMqMU3a48e8AOOcsSVsxa0W1G3E0VakwW3Q70FOiz9B3ePcCROSm6Y5jAFGZsnsNCc79x/6sNbGEHjpwdYp9T9wwXuIInZ4+45dS9wwOe4MvZJ15fusFudETtzDCMZN4aK+XQ
+   eJzt0msKgkAUhuFJqzVY1Br6UWtIqB10rx10tSV0tT1Uts6+YITDQUfTkQjmwAPnh/riqBD/NSWwwP5CBao5uw60M+j8qNsnz6BnZpG9LOLPRkf384yGQjNldwBDZpSj68p3D9kx77KEFbNWdFsJZ1ODOqOj24WeAr2W3sO7BzgyJ0V3DBOYwoztc1hEdHX8VxvYwg48uXvEvqDuGS5wBV/uPnErqHuHBzwhkHtAvCK64bdJI+mbmTFjJtu8AUnVQuY=
   </data>
  </layer>
  <layer name="Objects" width="30" height="20">
@@ -18,9 +23,18 @@
    eJxjYBgF1AK8QMwHxPxALEBHe1WAWBWI1YBYnY72WgOxDRDbArEdHe0dBdQDo+l1FIyCUTAKaAMACYcDeA==
   </data>
  </layer>
- <layer name="Collision" width="30" height="20" opacity="0.64">
+ <layer name="Collision" width="30" height="20" visible="0" opacity="0.53">
   <data encoding="base64" compression="zlib">
    eJxbwsDAsGQIYUrASLWXHDeiyw2EvaTaQY0wIwcMBXupkbaWING0jl9izBpK+ZcYd+DSM5T8O4pH8ShGYABTIesd
   </data>
  </layer>
+ <objectgroup name="MapTransitions">
+  <object id="1" name="map_2_transition" x="304" y="80" width="96" height="64">
+   <properties>
+    <property name="targetMap" value="map_2"/>
+    <property name="targetXTile" type="int" value="5"/>
+    <property name="targetYTile" type="int" value="5"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

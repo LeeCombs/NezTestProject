@@ -8,8 +8,7 @@ namespace NezTestProject {
     /// This is the main type for your game.
     /// </summary>
     public class Game1 : Core {
-
-        Entity _playerEntity;
+        
 
         public Game1() : base(width: 450, height: 300, isFullScreen: false, enableEntitySystems: true) {
             //
@@ -23,27 +22,12 @@ namespace NezTestProject {
 
 
             // Set up the scene
-            var myScene = new GameScene();
-
-
-            // Add the player and camera
+            var myScene = new GameScene(new Vector2(2 * 16, 5 * 16));
             
-            _playerEntity = PlayerAssemblage.MakePlayer(new Vector2(50, 50));
-            myScene.addEntity(_playerEntity);
-            var folCam = myScene.camera.addComponent(new FollowCamera(_playerEntity, FollowCamera.CameraStyle.CameraWindow));
-            
-
             // Spawner test
-            var spawnerEntity = myScene.createEntity("spawner");
-            spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyAssemblage.EnemyType.Goomba));
-            myScene.addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
-
-            // Other entity processors
-            myScene.addEntityProcessor(new CollisionSystem(new Matcher().all(typeof(Collider))));
-            myScene.addEntityProcessor(new HurtboxSystem(new Matcher().all(typeof(Hurtbox))));
-            myScene.addEntityProcessor(new CombatStatSystem(new Matcher().all(typeof(CombatStats))));
-            myScene.addEntityProcessor(new DamageSplatSystem(new Matcher().all(typeof(DamageSplat))));
-
+            // var spawnerEntity = myScene.createEntity("spawner");
+            // spawnerEntity.addComponent(new EnemySpawnerComponent(EnemyAssemblage.EnemyType.Goomba));
+            
             // Entity testing
             var hbent = myScene.createEntity("hb");
             hbent.position = new Vector2(300, 300);
@@ -52,6 +36,7 @@ namespace NezTestProject {
             var hbent2 = myScene.createEntity("hb");
             hbent2.position = new Vector2(350, 300);
             hbent2.addComponent(new Hurtbox(6000, 10, Hurtbox.HurtboxType.Player));
+
 
             // Set the scene so Nez can take over
             scene = myScene;
@@ -71,8 +56,8 @@ namespace NezTestProject {
 
             // TODO: Add your update logic here
 
-            if (Nez.Input.isKeyPressed(Keys.T))
-                Core.startSceneTransition(new WindTransition(() => new GameScene2()));
+            if (Input.isKeyPressed(Keys.T))
+                startSceneTransition(new WindTransition(() => new GameScene2(new Vector2(2 * 16, 2 * 16))));
             
             base.Update(gameTime);
         }
