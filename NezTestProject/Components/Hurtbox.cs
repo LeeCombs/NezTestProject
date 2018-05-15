@@ -43,13 +43,13 @@ namespace NezTestProject {
             physicsLayer = 0;
 
             if (lifeSpan <= 0) {
-                Debug.log("Lifespan must be more than 0");
+                Debug.warn("Lifespan must be more than 0");
                 return;
             }
 
             if (tickRate <= 0) {
-                Debug.log("tickRate must be more than 0; Setting default");
                 // Default the tickrate to 60 or lifespan, whichever is less
+                Debug.warn("tickRate must be more than 0; Setting default");
                 tickRate = lifeSpan > 60 ? 60 : lifeSpan;
             }
 
@@ -62,6 +62,14 @@ namespace NezTestProject {
                 this.sourceEntity = sourceEntity;
 
             damagedEntities = new List<Entity>();
+        }
+
+        /// <summary>
+        /// Cleanup
+        /// </summary>
+        public override void onRemovedFromEntity() {
+            damagedEntities.Clear();
+            sourceEntity = null;
         }
     }
 }
