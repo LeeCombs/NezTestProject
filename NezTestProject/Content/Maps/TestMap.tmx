@@ -31,7 +31,7 @@
  <objectgroup name="MapTransitions">
   <object id="1" name="map_2_transition" x="304" y="80" width="96" height="64">
    <properties>
-    <property name="targetMap" value="map_2"/>
+    <property name="targetScene" value="GameScene2"/>
     <property name="targetXTile" value="5"/>
     <property name="targetYTile" value="5"/>
    </properties>

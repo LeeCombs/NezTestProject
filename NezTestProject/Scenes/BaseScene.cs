@@ -63,6 +63,14 @@ namespace NezTestProject {
             tiledDetailsComp.renderLayer = (int)RenderLayer.AboveDetail;
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = content.loadNezEffect<SpriteAlphaTestEffect>();
+
+            // Creat MapTransition Entities based on the MapTransitions object layer
+            var mapTraObj = tiledMap.getObjectGroup("MapTransitions");
+            foreach (var o in mapTraObj.objects) {
+                Vector2 pos = new Vector2(o.x, o.y);
+                Vector2 targetPos = new Vector2(int.Parse(o.properties["targetXTile"]) * Globals.TILE_SIZE, int.Parse(o.properties["targetYTile"]) * Globals.TILE_SIZE);
+                addEntity(MapTransitionAssemblage.MakeMapTransition(o.width, o.height, pos, o.properties["targetScene"], targetPos));
+            }
         }
 
         private void loadMusic() {

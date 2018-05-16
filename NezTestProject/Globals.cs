@@ -4,6 +4,7 @@
 //---------------------------
 
 namespace NezTestProject {
+
     public enum RenderLayer {
         AboveDetailShadow = -2,
         AboveDetail = -1,
@@ -15,6 +16,10 @@ namespace NezTestProject {
         Enemy,
         Player,
         Environment
+    }
+
+    public class Globals {
+        public const int TILE_SIZE = 16;
     }
 }
 

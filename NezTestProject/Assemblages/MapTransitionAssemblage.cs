@@ -8,7 +8,7 @@ namespace NezTestProject {
             var col = new BoxCollider(width, height);
             col.physicsLayer = 0;
             mapEnt.addComponent(col);
-            mapEnt.position = position;
+            mapEnt.position = new Vector2(position.X + width / 2, position.Y + height / 2);
             mapEnt.addComponent(new MapTransition(targetScene, targetPosition));
             return mapEnt;
         }

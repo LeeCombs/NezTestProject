@@ -12,8 +12,6 @@ namespace NezTestProject {
         public override void initialize() {
             _mapPath = "TestMap";
             _songPath = "Cool_Morning";
-            
-            addEntity(MapTransitionAssemblage.MakeMapTransition(6 * 16, 4 * 16, new Vector2(22 * 16, 7 * 16), "GameScene2", new Vector2(50, 50)));
 
             base.initialize();
         }
