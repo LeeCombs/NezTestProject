@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assemblages\DamageSplatAssemblage.cs" />
+    <Compile Include="Assemblages\MapTransitionAssemblage.cs" />
     <Compile Include="Components\CombatStats.cs" />
     <Compile Include="Components\DamageSplat.cs" />
     <Compile Include="Components\Hurtbox.cs" />

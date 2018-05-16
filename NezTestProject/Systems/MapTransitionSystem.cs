@@ -7,6 +7,8 @@ namespace NezTestProject {
         public MapTransitionSystem(Matcher matcher) : base(matcher) { }
 
         public override void process(Entity entity) {
+            // Check for overlapping entities. If it's tagged as a player, and the transition is
+            // enabled, transition into the target scene.
             var mtc = entity.getComponent<MapTransition>();
             var colliders = Physics.boxcastBroadphase(entity.getComponent<Collider>().bounds);
             foreach (var col in colliders) {

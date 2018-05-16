@@ -50,11 +50,11 @@ namespace NezTestProject {
         #region Helpers
 
         private void loadMap() {
+            // Load the Tiled map, and render it below everything
             var tiledMap = content.Load<TiledMap>("Maps\\" + _mapPath);
             var tiledEntity = createEntity("tiled-map");
             var tiledMapComponent = tiledEntity.addComponent(new TiledMapComponent(tiledMap, "Collision"));
-            tiledMapComponent.setLayersToRender(new string[] { "Objects", "Terrain" });
-            // Render below everything
+            tiledMapComponent.setLayersToRender(new string[] { "Objects", "Terrain", "Background" });
             tiledMapComponent.renderLayer = (int)RenderLayer.TileMap;
 
             // Render above-details later above the player
@@ -77,12 +77,9 @@ namespace NezTestProject {
             addEntityProcessor(new CollisionSystem(new Matcher().all(typeof(Collider))));
             addEntityProcessor(new HurtboxSystem(new Matcher().all(typeof(Hurtbox))));
             addEntityProcessor(new SpawnerSystem(new Matcher().all(typeof(EnemySpawnerComponent))));
-
             addEntityProcessor(new CombatStatSystem(new Matcher().all(typeof(CombatStats))));
             addEntityProcessor(new DamageSplatSystem(new Matcher().all(typeof(DamageSplat))));
             addEntityProcessor(new MapTransitionSystem(new Matcher().all(typeof(MapTransition))));
-
-
         }
 
         #endregion

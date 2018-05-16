@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" nextobjectid="29">
- <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184" columns="23">
+ <tileset firstgid="1" name="tiles_packed" tilewidth="16" tileheight="16" tilecount="184">
   <image source="tiles_packed.png" width="368" height="128"/>
  </tileset>
- <layer name="TerrainBackground" width="32" height="32">
+ <layer name="Background" width="32" height="32">
   <data encoding="base64" compression="zlib">
    eJztwwEJAAAMBKGL/tHXYyi4aqqqqurrBwBLAB8=
   </data>
@@ -39,8 +39,8 @@
   <object id="23" name="map_1_transition" x="224" y="208" width="64" height="64">
    <properties>
     <property name="targetMap" value="map_1"/>
-    <property name="targetXTile" type="int" value="5"/>
-    <property name="targetYTile" type="int" value="5"/>
+    <property name="targetXTile" value="5"/>
+    <property name="targetYTile" value="5"/>
    </properties>
   </object>
  </objectgroup>

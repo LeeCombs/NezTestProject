@@ -37,7 +37,7 @@ namespace NezTestProject {
 
                             // Only apply damage to a specific entity once per hb.tick
                             if (hb.damagedEntities.Contains(col.entity))
-                                break;
+                                continue;
                             hb.damagedEntities.Add(col.entity);
 
                             // Damage the colliding entity and create a damage splat entity
@@ -47,7 +47,6 @@ namespace NezTestProject {
                                 case Hurtbox.HurtboxType.Envrionment:
                                     // Hurt everything
                                     dmgDealt = cbs.DealDamage((int)hb.damage);
-                                    // TODO: Create a damage splat with dmgDealt
                                     break;
                                 case Hurtbox.HurtboxType.Enemy:
                                     // Hurt player

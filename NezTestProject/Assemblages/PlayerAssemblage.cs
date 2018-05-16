@@ -20,9 +20,8 @@ namespace NezTestProject {
             var shadow = playerEntity.addComponent(new SpriteMime(playerSprite));
             shadow.color = new Color(10, 10, 10, 80);
             shadow.material = Material.stencilRead();
-            shadow.renderLayer = (int)RenderLayer.AboveDetailShadow; // Above top-most tile map graphics
-
-
+            shadow.renderLayer = (int)RenderLayer.AboveDetailShadow;
+            
             // Movement and collision
             playerEntity.addComponent(new CircleCollider());
             playerEntity.addComponent(new Mover());
