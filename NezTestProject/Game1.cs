@@ -17,7 +17,7 @@ namespace NezTestProject {
         protected override void Initialize() {
             // Basic set up
             base.Initialize();
-            // debugRenderEnabled = true;
+            debugRenderEnabled = true;
             Window.AllowUserResizing = true;
 
 

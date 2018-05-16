@@ -63,14 +63,13 @@ namespace NezTestProject {
             tiledDetailsComp.renderLayer = (int)RenderLayer.AboveDetail;
             tiledDetailsComp.material = Material.stencilWrite();
             tiledDetailsComp.material.effect = content.loadNezEffect<SpriteAlphaTestEffect>();
-
-
         }
 
         private void loadMusic() {
             var _sceneSong = Core.content.Load<Song>("Music\\" + _songPath);
             MediaPlayer.Play(_sceneSong);
             MediaPlayer.Volume = 0.2f;
+            MediaPlayer.IsRepeating = true;
         }
 
         private void loadEntityProcessors() {
@@ -81,6 +80,9 @@ namespace NezTestProject {
 
             addEntityProcessor(new CombatStatSystem(new Matcher().all(typeof(CombatStats))));
             addEntityProcessor(new DamageSplatSystem(new Matcher().all(typeof(DamageSplat))));
+            addEntityProcessor(new MapTransitionSystem(new Matcher().all(typeof(MapTransition))));
+
+
         }
 
         #endregion
