@@ -74,10 +74,7 @@ namespace NezTestProject {
         }
 
         private void loadMusic() {
-            var _sceneSong = Core.content.Load<Song>("Music\\" + _songPath);
-            MediaPlayer.Play(_sceneSong);
-            MediaPlayer.Volume = 0.2f;
-            MediaPlayer.IsRepeating = true;
+            SoundManager.PlayMusic(_songPath);
         }
 
         private void loadEntityProcessors() {

@@ -50,6 +50,7 @@
     <Compile Include="Components\MapTransition.cs" />
     <Compile Include="Scenes\BaseScene.cs" />
     <Compile Include="Scenes\GameScene2.cs" />
+    <Compile Include="SoundManager.cs" />
     <Compile Include="Systems\CombatStatSystem.cs" />
     <Compile Include="Systems\DamageSplatSystem.cs" />
     <Compile Include="Systems\HurtboxSystem.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Systems\MapTransitionSystem.cs" />
     <Compile Include="Systems\PlayerSystem.cs" />
     <Compile Include="Systems\SpawnerSystem.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">

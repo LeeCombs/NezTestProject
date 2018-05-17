@@ -18,8 +18,10 @@ namespace NezTestProject {
         Environment
     }
 
-    public class Globals {
+    public static class Globals {
         public const int TILE_SIZE = 16;
+
+        public static float Volume = 0.2f;
     }
 }
 
