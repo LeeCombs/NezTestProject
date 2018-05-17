@@ -56,6 +56,15 @@ namespace NezTestProject {
 
             // TODO: Add your update logic here
 
+            if (Input.isKeyPressed(Keys.OemPlus))
+                SoundManager.RaiseVolume();
+            if (Input.isKeyPressed(Keys.OemMinus))
+                SoundManager.LowerVolume();
+
+            if (Input.isKeyPressed(Keys.M))
+                SoundManager.PlayMusic(SoundManager.MusicTrack.Cool_Morning);
+
+
             if (Input.isKeyPressed(Keys.T))
                 startSceneTransition(new WindTransition(() => new GameScene2(new Vector2(2 * 16, 2 * 16))));
             
