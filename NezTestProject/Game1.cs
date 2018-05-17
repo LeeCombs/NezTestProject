@@ -64,10 +64,17 @@ namespace NezTestProject {
             if (Input.isKeyPressed(Keys.M))
                 SoundManager.PlayMusic(SoundManager.MusicTrack.Cool_Morning);
 
-
             if (Input.isKeyPressed(Keys.T))
                 startSceneTransition(new WindTransition(() => new GameScene2(new Vector2(2 * 16, 2 * 16))));
             
+
+            if (Input.isKeyPressed(Keys.O)) {
+                var transition = new SquaresTransition();
+                transition.onScreenObscured = sceneMethod;
+                Core.startSceneTransition(transition);
+            }
+
+
             base.Update(gameTime);
         }
 
@@ -78,5 +85,14 @@ namespace NezTestProject {
 
             base.Draw(gameTime);
         }
+
+        #region testing
+        public void sceneMethod() {
+            Debug.log("SCENE TRANSITION METHOD");
+            // move Camera to new location
+            // reset Entities
+            // etc.
+        }
+        #endregion
     }
 }
