@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using Nez;
 using Nez.Tiled;
+using Nez.UI;
 
 namespace NezTestProject {
     class BaseScene : Scene {
@@ -14,10 +15,12 @@ namespace NezTestProject {
 
         public BaseScene(Vector2 playerPos) {
             _playerPos = playerPos;
+
+            // UI testing
+            UIManager.SetupUI(this);
         }
 
         public override void initialize() {
-            base.initialize();
 
             // Set up the scene
             setDesignResolution(512, 256, SceneResolutionPolicy.ShowAllPixelPerfect);

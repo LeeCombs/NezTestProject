@@ -9,7 +9,8 @@ namespace NezTestProject {
         AboveDetailShadow = -2,
         AboveDetail = -1,
         Player = 1,
-        TileMap = 10
+        TileMap = 10,
+        ScreenSpace = 999
     }
 
     public enum Tag {
